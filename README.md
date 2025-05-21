@@ -1,6 +1,7 @@
-# mars-rover-project
+
 <h1>
---------------------------------- Especificações técnicas do robô ----------------------------------------------------------
+------------------- Especificações técnicas do robô ----------------------
+ <br>
  projeto : Mars rover project 
 
 (01/05/2025 - xx/xx/xxxx)
