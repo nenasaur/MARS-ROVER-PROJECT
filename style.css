@@ -1,0 +1,117 @@
+html {
+  font-size: 16px;
+}
+
+
+h3 {
+  color: aliceblue;
+}
+
+body { 
+ background-color: rgb(47, 27, 125); 
+}
+
+header {
+ background-color: rgb(143, 152, 159);
+ margin-top:-25px;
+ margin-left: -25px;
+ margin-right:-8px;
+}
+
+.header {
+  margin-top:15px;
+  box-align:center;
+  margin-left: 5%;
+
+}
+
+
+.principais {
+ display:inline-block;
+  height: 1000px;
+  width: 350px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  margin-top:50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.principais h3 {
+
+  color: rgb(25, 181, 59);
+}
+.principais h4 {
+
+  color: rgb(25, 181, 59);
+  margin-left:20px
+}
+
+.principais p {
+
+  color:rgb(25, 181, 59)
+}
+
+#console {
+background-color: black;
+
+}
+
+#sensores {
+
+background-color: black;
+}
+
+#position {
+background-color: black;
+}
+
+#STATUS {
+
+  background-color: black;
+}
+
+
+footer {
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+  margin-left: -25px;
+  margin-bottom: -25px;
+  background-color: black;
+  margin-right:-8px;
+}
+
+.footer {
+  display: inline-block; 
+  margin-bottom: 1%;
+}
+
+.footer  p{
+
+color: white ;
+}
+
+.footer img {
+  margin-top: 120px;
+  width: 5em;
+  height:5em;
+  border-radius: 10px;
+  margin-left: 35px;
+  
+}
+#contate-nos{
+ margin-left: 60%; 
+ width: 20em;
+ height: 20ex;
+ background-color: rgb(33, 33, 34);
+ border-radius: 15px;
+
+}
+
+
+
+
+
+
+
+
