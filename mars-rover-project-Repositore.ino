@@ -103,47 +103,8 @@ void setup() {
  
  
   //----------------- Motor's pin configuration as output-----------------------------------------------------------
- 
-   pinMode(Motor1_speed, OUTPUT);
-   pinMode(Motor2_speed, OUTPUT);
-   pinMode(Motor3_speed, OUTPUT);
-   pinMode(Motor4_speed, OUTPUT);
-   pinMode(Motor5_speed, OUTPUT);
-   pinMode(Motor6_speed, OUTPUT);
 
-   pinMode(Motor1_forward, OUTPUT); 
-   pinMode(Motor2_forward, OUTPUT); 
-   pinMode(Motor3_forward, OUTPUT); 
-   pinMode(Motor4_forward, OUTPUT); 
-   pinMode(Motor5_forward, OUTPUT); 
-   pinMode(Motor6_forward, OUTPUT); 
-
-   pinMode(Motor1_backward, OUTPUT); 
-   pinMode(Motor2_backward, OUTPUT); 
-   pinMode(Motor3_backward, OUTPUT); 
-   pinMode(Motor4_backward, OUTPUT); 
-   pinMode(Motor5_backward, OUTPUT); 
-   pinMode(Motor6_backward, OUTPUT); 
-
-   //start the code with the engines stopped
-
-    digitalWrite(Motor1_backward, LOW); 
-    digitalWrite(Motor2_backward, LOW); 
-    digitalWrite(Motor3_backward, LOW); 
-    digitalWrite(Motor4_backward, LOW); 
-    digitalWrite(Motor5_backward, LOW); 
-
-    digitalWrite(Motor1_forward, LOW); 
-    digitalWrite(Motor2_forward, LOW); 
-    digitalWrite(Motor3_forward, LOW); 
-    digitalWrite(Motor4_forward, LOW); 
-    digitalWrite(Motor5_forward, LOW); 
-
-    digitalWrite(Motor1_speed, LOW); 
-    digitalWrite(Motor2_speed, LOW); 
-    digitalWrite(Motor3_speed, LOW); 
-    digitalWrite(Motor4_speed, LOW); 
-    digitalWrite(Motor5_speed, LOW); 
+    enginesConfiguration();
 
     //Servosresponsible for changing the direction of the wheels
      servoForMotor1.attach(2);
@@ -182,7 +143,7 @@ void setup() {
 
 }
 
-void loop() {
+void loop(){
  
 
  //------------------------------ Convert the analog value into lux value (LDR-1)-----------------------------------------------------------------------------------
@@ -207,7 +168,7 @@ void loop() {
    float voltage2 = analogValue2 / 1024. * 5;
    float resistance2 = 2000 * voltage2 / (1 - voltage2 / 5);
    float lux3 = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance2, (1 / GAMMA));
- //-----------------------------------------------------------------------------------------------------------------
+ //--------------------------------------------------------------------------------------------------------------------------------------
  
  Serial.println("................................................................");
  Serial.println("Valor 1: " + String(lux1) + " | Valor 2: " + String(lux2) + " | Valor 3: " + String(lux3) + " | Tipo: lux");
@@ -225,7 +186,7 @@ void loop() {
     Serial.println(duration / 58);
  //----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
- //---------------------------Position and Environmental Sensors------------------------------------------------------------------------------------------------------------------------
+ //---------------------------Position and Environmental Sensors---------------------------------------------------------------------------------------------------
 
    getTemperatureAndHumityValue();
    // this other part is related to the robot's position
@@ -267,4 +228,47 @@ void getChangeInAxisXYZ(){
   Serial.print("posição : |x : " + String(g.gyro.x) + " |");
   Serial.print(" y : " + String(g.gyro.y)+ " |");
   Serial.println( "  z  : " + String(g.gyro.z)+ " |");
+}
+
+void enginesConfiguration(){
+
+  pinMode(Motor1_speed, OUTPUT);
+  pinMode(Motor2_speed, OUTPUT);
+  pinMode(Motor3_speed, OUTPUT);
+  pinMode(Motor4_speed, OUTPUT);
+  pinMode(Motor5_speed, OUTPUT);
+  pinMode(Motor6_speed, OUTPUT);
+
+  pinMode(Motor1_forward, OUTPUT); 
+  pinMode(Motor2_forward, OUTPUT); 
+  pinMode(Motor3_forward, OUTPUT); 
+  pinMode(Motor4_forward, OUTPUT); 
+  pinMode(Motor5_forward, OUTPUT); 
+  pinMode(Motor6_forward, OUTPUT); 
+
+  pinMode(Motor1_backward, OUTPUT); 
+  pinMode(Motor2_backward, OUTPUT); 
+  pinMode(Motor3_backward, OUTPUT); 
+  pinMode(Motor4_backward, OUTPUT); 
+  pinMode(Motor5_backward, OUTPUT); 
+  pinMode(Motor6_backward, OUTPUT); 
+
+   //start the code with the engines stopped
+  digitalWrite(Motor1_backward, LOW); 
+  digitalWrite(Motor2_backward, LOW); 
+  digitalWrite(Motor3_backward, LOW); 
+  digitalWrite(Motor4_backward, LOW); 
+  digitalWrite(Motor5_backward, LOW); 
+
+  digitalWrite(Motor1_forward, LOW); 
+  digitalWrite(Motor2_forward, LOW); 
+  digitalWrite(Motor3_forward, LOW); 
+  digitalWrite(Motor4_forward, LOW); 
+  digitalWrite(Motor5_forward, LOW); 
+
+  digitalWrite(Motor1_speed, LOW); 
+  digitalWrite(Motor2_speed, LOW); 
+  digitalWrite(Motor3_speed, LOW); 
+  digitalWrite(Motor4_speed, LOW); 
+  digitalWrite(Motor5_speed, LOW); 
 }
