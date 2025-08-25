@@ -35,8 +35,8 @@ SoftwareSerial ss(19, 20);
 
   Servo servoForMotor1 ;
   Servo servoForMotor2 ;
-  Servo servoForMotor3;
-  Servo servoForMotor4 ;
+  Servo servoForMotor5 ;
+  Servo servoForMotor6 ;
 
   //declaration of the pins used to control the rotation speed
   const int Motor1_speed = 36;
@@ -109,8 +109,8 @@ void setup() {
     //Servosresponsible for changing the direction of the wheels
      servoForMotor1.attach(2);
      servoForMotor2.attach(3);
-     servoForMotor3.attach(4);
-     servoForMotor4.attach(5);
+     servoForMotor5.attach(4);
+     servoForMotor6.attach(5);
   
   //---------------------------------------------------------------------------------
 
@@ -168,14 +168,24 @@ void loop(){
    float voltage2 = analogValue2 / 1024. * 5;
    float resistance2 = 2000 * voltage2 / (1 - voltage2 / 5);
    float lux3 = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance2, (1 / GAMMA));
- //--------------------------------------------------------------------------------------------------------------------------------------
- 
- Serial.println("................................................................");
- Serial.println("Valor 1: " + String(lux1) + " | Valor 2: " + String(lux2) + " | Valor 3: " + String(lux3) + " | Tipo: lux");
- 
+  //----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
- //-------------------------------calculates the distance in cm----------------------------------------------------------------------------------------------------
-   //Start a new measurement:
+ //----------------------------------Serial monitor configuration---------------------------------------------------------------------------------------------------
+ Serial.println("................................................................");
+   Serial.println("Valor 1: " + String(lux1) + " | Valor 2: " + String(lux2) + " | Valor 3: " + String(lux3) + " | Tipo: lux");
+   getObstacleDistance();
+   getTemperatureAndHumityValue();
+   getChangeInAxisXYZ();
+ Serial.println("................................................................");
+ //----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ delay(10000);
+
+}
+
+
+void getObstacleDistance(){
+ //Start a new measurement:
     digitalWrite(PIN_TRIG, HIGH);
     delayMicroseconds(10);
     digitalWrite(PIN_TRIG, LOW);
@@ -184,20 +194,6 @@ void loop(){
     int duration = pulseIn(PIN_ECHO, HIGH);
     Serial.print("Distância em CM: ");
     Serial.println(duration / 58);
- //----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
- //---------------------------Position and Environmental Sensors---------------------------------------------------------------------------------------------------
-
-   getTemperatureAndHumityValue();
-   // this other part is related to the robot's position
-   getChangeInAxisXYZ();
-
- //----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
- Serial.println("................................................................");
-
- delay(10000);
-
 }
 
 void getTemperatureAndHumityValue(){
